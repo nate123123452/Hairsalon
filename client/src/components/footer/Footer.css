@@ -1,0 +1,29 @@
+.footer {
+    text-align: center;
+}
+
+.footer-socials {
+    display: flex;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    justify-content: center;
+}
+
+.footer-socials img {
+    width: 30px; /* Adjust width as needed */
+    height: 30px; /* Adjust height as needed */
+    margin: 0 10px; /* Add spacing between images */
+}
+
+.footer-end {
+    font-size: 15px;
+}
+
+h1 {
+    font-size: 20px;
+    color: rgb(211, 165, 48, 1);
+}
+
+p {
+    font-size: 20px;
+}

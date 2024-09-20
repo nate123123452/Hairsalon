@@ -1,0 +1,45 @@
+@font-face {
+    font-family: 'Futura LT W01 Book';
+    src: url('/public/fonts/FuturaLTW01Book.woff2') format('woff2'),
+         url('/public/fonts/FuturaLTW01Book.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Futura LT W05 Book';
+    src: url('/public/fonts/FuturaLTW05Book.woff2') format('woff2'),
+         url('/public/fonts/FuturaLTW05Book.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.policies-text {
+    display: block;
+    text-align: center;
+    margin-top: 50px;
+    flex: 2;
+    font-family: 'Futura LT W01 Book', 'Futura LT W05 Book', sans-serif; /* Apply custom fonts here */
+}
+
+.policies-text h1 {
+    margin-bottom: 40px;
+    font-size: 50px;
+}
+
+.policies-text p {
+    margin-bottom: 40px;
+    margin-left: 100px;
+    margin-right: 100px;
+    padding: 0px;
+    text-align: left;
+}
+
+.policies-main {
+    display: flex;
+}
+
+.policies-main img {
+    max-width: 100%; 
+    height: auto; 
+}

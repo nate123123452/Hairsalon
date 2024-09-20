@@ -1,0 +1,81 @@
+.input-error {
+    border: 1px solid red;
+    background-color: #ffe6e6;
+}
+
+.careers-main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.careers-left {
+    gap: 0px;
+    margin-left: 10%;
+}
+
+.careers-text {
+    margin-bottom: 40px;
+}
+
+.careers-text h1 {
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+.careers-text p {
+    font-size: 20px;
+    margin-left: 100px;
+}
+
+.careers-input {
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.input-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, auto) auto;
+    row-gap: 5px;
+    column-gap: 5px;
+}
+
+.input-grid input,
+.input-grid select {
+    padding: 15px; 
+    box-sizing: border-box; /* Ensures padding doesn't affect width */
+    border: 1px solid black;
+}
+
+.input-grid select option{
+    background-color: #fff;
+    color: #44474d;
+    font: normal normal normal 15px/1.875em cormorantgaramond-light, cormorantgaramond, 'cormorant garamond', serif;
+}
+
+.input-grid select option:first-child {
+    color: #666; /* Darker gray for the placeholder option */
+}
+
+.input-grid select:invalid {
+    color: #666; /* Darker color for when no valid option is selected */
+}
+
+.careers-input button {
+    cursor: pointer;
+    margin-top: 5px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-right: 45px;
+    padding-left: 45px;
+    background-color: black;
+    color: white;
+    align-self: flex-end;
+}
+
+.select-option {
+    color: rgb(87, 0, 0);
+}

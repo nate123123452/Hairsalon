@@ -1,0 +1,97 @@
+@font-face {
+    font-family: 'Futura LT W01 Book';
+    src: url('/public/fonts/FuturaLTW01Book.woff') format('woff2'),
+         url('/public/fonts/FuturaLTW01Book.woff2') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Futura LT W05 Book';
+    src: url('/public/fonts/FuturaLTW05Book.woff') format('woff2'),
+         url('/public/fonts/FuturaLTW05Book.woff2') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: 'Futura LT W01 Book', 'Futura LT W05 Book', sans-serif;
+}
+
+.navbar-name {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.navbar {
+    display: flex;
+    height: 100px;
+    font-family: 'Futura LT W01 Book', 'Futura LT W05 Book'; /* Apply custom fonts */
+}
+
+.navbar-left {
+    display: flex;
+    align-items: center;
+    margin-left: 15px;
+    margin-right: auto;
+    margin-bottom: auto;
+    margin-top: auto;
+}
+
+.navbar-salon-image {
+    width: 60px;
+    height: 60px;
+}
+
+.navbar-right {
+    display: flex;
+    list-style: none;
+    gap: 1px;
+    align-items: center;
+}
+
+.navbar-item {
+    line-height: 50px;
+    font-family: 'Futura LT W01 Book', 'Futura LT W05 Book', sans-serif; /* Use custom fonts here */
+}
+
+.navbar-item a {
+    text-decoration: none;
+    color: rgb(211, 165, 48, 1);
+    font-family: 'Futura LT W01 Book', 'Futura LT W05 Book', sans-serif; /* Use custom fonts here */
+}
+
+.navbar-item a:hover {
+    color: black;
+}
+
+.navbar-item .active {
+    color: black; /* Darken the color */
+}
+
+.navbar-line {
+    color: black;
+    width: 10px;
+    margin: 0 10px;
+}
+
+.navbar-socials-pic {
+    display: flex;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.navbar-socials {
+    display: flex; 
+    margin-right: 50px; 
+    margin-left: 25px;
+}
+
+.navbar-name {
+    display: flex;
+    font-size: 20px;
+    font-family: 'Futura LT W01 Book', 'Futura LT W05 Book', sans-serif; /* Use custom fonts here */
+    color: black;
+}

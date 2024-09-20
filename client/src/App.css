@@ -1,0 +1,7 @@
+/* Updated App.css */
+.route-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* or consider using min-height if your content varies */
+  overflow: hidden; /* Prevent any overflow if needed */
+}
