@@ -1,0 +1,41 @@
+.reviews-main {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically by default */
+    text-align: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.reviews-left, .reviews-right {
+    display: flex;
+    flex-direction: column; /* Stack images vertically */
+    gap: 20px;
+}
+
+.reviews-title {
+    text-align: center;
+    border-bottom: 3px solid black;
+    padding: 10px;
+    font-size: 2rem; /* Use relative units */
+    margin-bottom: 20px;
+}
+
+.reviews-main img {
+    margin-bottom: 20px;
+    padding: 0px;
+    max-width: 100%; /* Ensure images are responsive */
+    height: auto;
+}
+
+/* Media queries for larger screens */
+@media (min-width: 768px) {
+    .reviews-main {
+        flex-direction: row; /* Align elements horizontally on larger screens */
+        gap: 60px;
+    }
+
+    .reviews-title {
+        font-size: 3rem; /* Increase font size on larger screens */
+    }
+}

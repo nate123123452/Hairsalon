@@ -1,0 +1,9 @@
+export { default as instapic1 } from './instapic-1.jpg';
+export { default as instapic2 } from './instapic-2.jpg';
+export { default as instapic3 } from './instapic-3.jpg';
+export { default as instapic4 } from './instapic-4.jpg';
+export { default as instapic5 } from './instapic-5.jpg';
+export { default as instapic6 } from './instapic-6.jpg';
+export { default as instapic7 } from './instapic-7.jpg';
+export { default as instapic8 } from './instapic-8.jpg';
+export { default as instapic9 } from './instapic-9.jpg';

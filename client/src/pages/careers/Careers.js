@@ -99,11 +99,10 @@ const Careers = () => {
 
     return (
         <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.75, ease: "easeInOut" }}
-        >
+            initial={{ opacity: 0, y: 0 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.5, ease: "easeInOut",smooth: true}}
+        >  
             <section className='careers-main'>
                 <div className='careers-left'>
                     <div className='careers-text'>

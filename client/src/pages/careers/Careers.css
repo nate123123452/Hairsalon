@@ -1,81 +1,69 @@
+/* Base styles for mobile first approach */
+.careers-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    width: 100%;
+}
+
+.careers-left {
+    width: 100%;
+    max-width: 600px;
+    padding: 1rem;
+}
+
+.careers-text {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.careers-text h1 {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+}
+
+.careers-text p {
+    font-size: 1rem;
+    margin: 0 1rem;
+}
+
 .input-error {
     border: 1px solid red;
     background-color: #ffe6e6;
 }
 
-.careers-main {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 20px;
+/* Tablet (768px and up) */
+@media (min-width: 768px) {
+    .careers-text h1 {
+        font-size: 2rem;
+    }
+    
+    .careers-text p {
+        font-size: 1.125rem;
+        margin: 0 2rem;
+    }
 }
 
-.careers-left {
-    gap: 0px;
-    margin-left: 10%;
-}
+/* Desktop (1024px and up) */
+@media (min-width: 1024px) {
+    .careers-main {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 2rem;
+    }
 
-.careers-text {
-    margin-bottom: 40px;
-}
+    .careers-left {
+        margin-left: 10%;
+    }
 
-.careers-text h1 {
-    font-size: 40px;
-    margin-bottom: 20px;
-}
+    .careers-text h1 {
+        font-size: 2.5rem;
+    }
 
-.careers-text p {
-    font-size: 20px;
-    margin-left: 100px;
-}
-
-.careers-input {
-    margin-left: 20px;
-    display: flex;
-    flex-direction: column;
-}
-
-.input-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(3, auto) auto;
-    row-gap: 5px;
-    column-gap: 5px;
-}
-
-.input-grid input,
-.input-grid select {
-    padding: 15px; 
-    box-sizing: border-box; /* Ensures padding doesn't affect width */
-    border: 1px solid black;
-}
-
-.input-grid select option{
-    background-color: #fff;
-    color: #44474d;
-    font: normal normal normal 15px/1.875em cormorantgaramond-light, cormorantgaramond, 'cormorant garamond', serif;
-}
-
-.input-grid select option:first-child {
-    color: #666; /* Darker gray for the placeholder option */
-}
-
-.input-grid select:invalid {
-    color: #666; /* Darker color for when no valid option is selected */
-}
-
-.careers-input button {
-    cursor: pointer;
-    margin-top: 5px;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    padding-right: 45px;
-    padding-left: 45px;
-    background-color: black;
-    color: white;
-    align-self: flex-end;
-}
-
-.select-option {
-    color: rgb(87, 0, 0);
+    .careers-text p {
+        font-size: 1.25rem;
+        margin-left: 6.25rem;
+        text-align: left;
+    }
 }

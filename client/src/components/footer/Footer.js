@@ -1,8 +1,6 @@
 import React from 'react'
 import './Footer.css'
-import yelpImage from '../navbar/yelp.jpg'
-import facebookImage from '../navbar/facebook.jpg'
-import instaImage from '../navbar/instagram.jpg'
+import { FaFacebook, FaYelp, FaInstagram } from 'react-icons/fa';
 
 const Footer = () => {
   return (
@@ -15,15 +13,15 @@ const Footer = () => {
       </p>
       <li className = "footer-socials">
             <a href='https://www.yelp.com/biz/hairtistic-rsm-rancho-santa-margarita' target ='_blank' rel='noreferrer'>
-              <img className = "navbar-socials-pic" src = {yelpImage} alt='yelp'></img>
+              <FaYelp className="navbar-socials-pic" style={{ color: '#FF1A1A' }} />
             </a>
             <a href='https://www.facebook.com/hairtistic.rsm/' target = '_blank' rel='noreferrer'>
-              <img className = "navbar-socials-pic" src = {facebookImage} alt='facebook'></img>
+              <FaFacebook className="navbar-socials-pic" style={{ color: '#1877F2' }} />
             </a>
             <a href = 'https://www.instagram.com/hairtistic.rsm/?hl=en' target = '_blank' rel='noreferrer'>
-              <img className = "navbar-socials-pic" src = {instaImage} alt='instagram'></img>
+              <FaInstagram className="navbar-socials-pic" style={{ color: '#E4405F' }} />
             </a>
-          </li>
+        </li>
       <p className = 'footer-end'>
         ©2023 by Hairtistic RSM.
       </p>

@@ -1,0 +1,25 @@
+.services-page {
+    background-image: url('https://static.wixstatic.com/media/11062b_cea61ad47bd44409ab4453ffcd71e1ad~mv2.jpg/v1/fill/w_1440,h_1053,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/11062b_cea61ad47bd44409ab4453ffcd71e1ad~mv2.jpg');
+    background-size: cover;
+    background-position: center;
+    min-height: 80vh; /* Makes the background take up 80% of viewport height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 120px 60px; /* Increased vertical padding */
+    margin-bottom: 40px;
+}
+
+@media screen and (max-width: 768px) {
+    .services-page {
+        min-height: 60vh; /* Slightly shorter on mobile */
+        padding: 80px 30px;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .services-page {
+        min-height: 90vh; /* Taller on desktop */
+        padding: 100px 60px;
+    }
+}

@@ -1,45 +1,65 @@
-@font-face {
-    font-family: 'Futura LT W01 Book';
-    src: url('/public/fonts/FuturaLTW01Book.woff2') format('woff2'),
-         url('/public/fonts/FuturaLTW01Book.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Futura LT W05 Book';
-    src: url('/public/fonts/FuturaLTW05Book.woff2') format('woff2'),
-         url('/public/fonts/FuturaLTW05Book.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
 .policies-text {
     display: block;
     text-align: center;
-    margin-top: 50px;
+    margin-top: 5%;
     flex: 2;
     font-family: 'Futura LT W01 Book', 'Futura LT W05 Book', sans-serif; /* Apply custom fonts here */
 }
 
 .policies-text h1 {
-    margin-bottom: 40px;
-    font-size: 50px;
+    margin-bottom: 4%;
+    font-size: 3rem; /* Use relative units */
 }
 
 .policies-text p {
-    margin-bottom: 40px;
-    margin-left: 100px;
-    margin-right: 100px;
-    padding: 0px;
+    margin-bottom: 4%;
+    margin-left: 10%;
+    margin-right: 10%;
+    padding: 0;
     text-align: left;
 }
 
 .policies-main {
     display: flex;
+    flex-direction: column; /* Stack elements vertically on smaller screens */
+    align-items: center;
 }
 
 .policies-main img {
     max-width: 100%; 
     height: auto; 
+}
+
+/* Media queries for medium screens */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .policies-main {
+        flex-direction: row; /* Align elements horizontally on medium screens */
+        justify-content: center;
+    }
+
+    .policies-text p {
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
+    .policies-text h1 {
+        font-size: 2.5rem; /* Adjust font size for medium screens */
+    }
+}
+
+/* Media queries for large screens */
+@media (min-width: 1025px) {
+    .policies-main {
+        flex-direction: row; /* Align elements horizontally on large screens */
+        justify-content: center;
+    }
+
+    .policies-text p {
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
+    .policies-text h1 {
+        font-size: 3rem; /* Adjust font size for large screens */
+    }
 }
