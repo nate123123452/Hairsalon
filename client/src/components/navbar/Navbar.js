@@ -63,23 +63,23 @@ const Navbar = () => {
           <NavLink to="/careers" activeClassName="active">Careers</NavLink>
         </li>
       </ul>
-
-      <li className = "navbar-socials">
-        <a href='https://www.yelp.com/biz/hairtistic-rsm-rancho-santa-margarita' target ='_blank' rel='noreferrer'>
-          <FaYelp className="navbar-socials-pic" style={{ color: '#FF1A1A' }} />
-        </a>
-        <a href='https://www.facebook.com/hairtistic.rsm/' target = '_blank' rel='noreferrer'>
-          <FaFacebook className="navbar-socials-pic" style={{ color: '#1877F2' }} />
-        </a>
-        <a href = 'https://www.instagram.com/hairtistic.rsm/?hl=en' target = '_blank' rel='noreferrer'>
-          <FaInstagram className="navbar-socials-pic" style={{ color: '#E4405F' }} />
-        </a>
-      </li>
+      <div className='navbar-right'>
+        <div className = "navbar-socials">
+          <a href='https://www.yelp.com/biz/hairtistic-rsm-rancho-santa-margarita' target ='_blank' rel='noreferrer'>
+            <FaYelp className="navbar-socials-pic" style={{ color: '#FF1A1A' }} />
+          </a>
+          <a href='https://www.facebook.com/hairtistic.rsm/' target = '_blank' rel='noreferrer'>
+            <FaFacebook className="navbar-socials-pic" style={{ color: '#1877F2' }} />
+          </a>
+          <a href = 'https://www.instagram.com/hairtistic.rsm/?hl=en' target = '_blank' rel='noreferrer'>
+            <FaInstagram className="navbar-socials-pic" style={{ color: '#E4405F' }} />
+          </a>
+        </div>
 
         <button className="mobile-menu-icon" onClick={() => setIsOpen(!isOpen)}>
           {isOpen ? (<FaTimes size={24} />) :  (<FaBars size={24}/>)}
         </button>
-
+      </div>
         <AnimatePresence>
           {isOpen && (
             <motion.ul 

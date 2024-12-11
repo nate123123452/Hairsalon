@@ -1,15 +1,22 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
 .navbar {
     display: flex;
-    height: 120px;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+    background-color: white;
 }
 
 .navbar-left {
     display: flex;
     align-items: center;
-    margin-left: 15px;
     margin-right: auto;
-    margin-bottom: auto;
-    margin-top: auto;
 }
 
 .navbar-salon-image {
@@ -55,7 +62,7 @@
 .navbar-socials {
     display: flex; 
     align-items: center;
-    margin-right: 50px; 
+    margin-right: 25px; 
     margin-left: 25px;
 }
 
@@ -64,6 +71,7 @@
     font-size: 20px;
     font-family: 'Futura LT W01 Book', 'Futura LT W05 Book', sans-serif; /* Use custom fonts here */
     color: black;
+    white-space: nowrap;
 }
 
 .mobile-menu-icon {
@@ -81,7 +89,6 @@
     left: 0;
     width: 100%;
     height: 100%;
-    overflow: hidden; /* Prevent scrolling */
     z-index: 1000;
     padding-top: 125px;
 }
@@ -102,10 +109,71 @@
 .mobile-menu-icon {
     z-index: 1001; /* Ensure menu icon stays above the mobile menu */
 }
-/* Media queries for smaller screens */
-@media (max-width: 768px) {
+/* Media queries for tablet */
+@media (max-width: 1024px) {
+    .navbar {
+        height: 80px;
+    }
+
+    .navbar-item {
+        padding: 0 10px;
+    }
+
+    .navbar-socials-pic {
+        width: 20px;
+        height: 20px;
+    }
+
+    .navbar-socials {
+        margin-right: 20px;
+        margin-left: 20px;
+    }
+
+    .navbar-name {
+        font-size: 18px;
+    }
+}
+
+/* Media queries for mobile large */
+@media (max-width: 767px) {
     .desktop-navbar {
         display: none;
+    }
+    .navbar {
+        display: flex;
+        flex-direction: row; /* Keep items in a row */
+        justify-content: space-between;
+        align-items: center;
+        height: auto; /* Adjust height for responsiveness */
+        padding-top: 20px;
+        padding-bottom: 20px;
+        gap: 10px;
+    }
+
+    .navbar-left {
+        display: flex;
+        align-items: center;
+    }
+
+    .navbar-right {
+        display: flex;
+        align-items: center;
+        margin-right: 0;
+        gap: 20px;
+    }
+
+    .navbar-socials {
+        margin-right: 0;
+        margin-left: 0;
+        width: fit-content;
+        height: fit-content;
+        gap: 20px;
+    }
+
+    .navbar-socials-pic {
+        width: 20px;
+        height: 20px;
+        margin-right: 0px;
     }
 
     .mobile-menu-icon {
@@ -123,21 +191,44 @@
     .mobile-navbar-item a.active {
         color: rgb(211, 165, 48, 1);
     }
+}
+
+/* Media queries for mobile medium */
+@media screen and (max-width: 375px) {
+    .navbar{
+        gap: 20px;
+    }
+    .navbar-name {
+        font-size:large;
+    }
+}
+
+/* Media queries for mobile small */
+@media (max-width: 374px) {
+    .navbar-salon-image {
+        width: 45px;
+        height: 45px;
+    }
 
     .navbar-name {
-        display: flex;
-        white-space: nowrap;
+        font-size: 16px;
+    }
+
+    .navbar-right {
+        gap: 12px;
     }
 
     .navbar-socials {
-        display: flex;
-        align-items: center;
-        margin-right: 20px;
-        gap: 15px;
+        gap: 12px;
     }
 
     .navbar-socials-pic {
-        display: flex;
-        margin-right: 0px;
+        width: 20px;
+        height: 20px;
+    }
+
+    .mobile-menu-icon {
+        margin-right: 10px;
     }
 }
+

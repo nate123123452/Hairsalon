@@ -15,6 +15,10 @@
         min-height: 60vh; /* Slightly shorter on mobile */
         padding: 80px 30px;
     }
+    .services-page img{
+        width: 100%;
+        height: auto;
+    }
 }
 
 @media screen and (min-width: 1024px) {

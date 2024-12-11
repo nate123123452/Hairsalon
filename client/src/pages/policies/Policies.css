@@ -1,14 +1,21 @@
+.policies-main {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
 .policies-text {
     display: block;
     text-align: center;
-    margin-top: 5%;
     flex: 2;
-    font-family: 'Futura LT W01 Book', 'Futura LT W05 Book', sans-serif; /* Apply custom fonts here */
+    padding-left: 10%;
+    padding-right: 10%;
 }
 
 .policies-text h1 {
     margin-bottom: 4%;
-    font-size: 3rem; /* Use relative units */
+    font-size: 3rem; 
+    letter-spacing: 5px;
 }
 
 .policies-text p {
@@ -17,49 +24,61 @@
     margin-right: 10%;
     padding: 0;
     text-align: left;
+    line-height: 1.6;
 }
 
-.policies-main {
-    display: flex;
-    flex-direction: column; /* Stack elements vertically on smaller screens */
-    align-items: center;
-}
-
-.policies-main img {
-    max-width: 100%; 
-    height: auto; 
-}
-
-/* Media queries for medium screens */
-@media (min-width: 768px) and (max-width: 1024px) {
-    .policies-main {
-        flex-direction: row; /* Align elements horizontally on medium screens */
-        justify-content: center;
+/* Media queries for small screens */
+@media (max-width: 767px) {
+    .policies-main{
+        flex-direction: column; 
     }
-
-    .policies-text p {
+    .policies-main img {
+        width: 100%;
+        height: 40vh;
+        object-fit: cover;
+        margin-bottom: 20px;
+    }
+    .policies-text {
+        padding-left: 0%;
+        padding-right: 0%;
+    }
+    .policies-text p{
         margin-left: 5%;
         margin-right: 5%;
-    }
-
-    .policies-text h1 {
-        font-size: 2.5rem; /* Adjust font size for medium screens */
+        font-size: 0.95rem;
     }
 }
 
-/* Media queries for large screens */
-@media (min-width: 1025px) {
+/* Media queries for large tablet screens */
+@media screen and (min-width: 1024px) and (max-width: 1279px) {
     .policies-main {
-        flex-direction: row; /* Align elements horizontally on large screens */
-        justify-content: center;
+        display: flex;
+        flex-direction: row;
+        align-items: stretch; /* Stretch items to the same height */
+        gap: 25px;
     }
-
+    .policies-main img {
+        width: 45%; /* Adjust width for large tablet screens */
+        height: auto; /* Maintain aspect ratio */
+        object-fit: cover;
+    }
+    .policies-text {
+        padding-left: 0%;
+        padding-right: 0%;
+        width: 55%; /* Adjust width for large tablet screens */
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* Center text vertically */
+    }
     .policies-text p {
-        margin-left: 5%;
-        margin-right: 5%;
+        margin-left: 0;
+        margin-right: 0;
+        font-size: 1.15rem;
     }
-
     .policies-text h1 {
-        font-size: 3rem; /* Adjust font size for large screens */
+        font-size: 2.5rem;
     }
 }
+
+
+
