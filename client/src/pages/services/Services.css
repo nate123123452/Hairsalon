@@ -10,20 +10,53 @@
     margin-bottom: 40px;
 }
 
-@media screen and (max-width: 768px) {
+/* Mobile Small (320px and below) */
+@media screen and (max-width: 320px) {
     .services-page {
-        min-height: 60vh; /* Slightly shorter on mobile */
-        padding: 80px 30px;
+        padding: 60px 20px;
     }
-    .services-page img{
-        width: 100%;
-        height: auto;
+    .services-page img {
+        transform: scale(1);
     }
 }
 
+/* Mobile Medium (321px to 375px) */
+@media screen and (min-width: 321px) and (max-width: 375px) {
+    .services-page {
+        padding: 80px 30px;
+    }
+    .services-page img {
+        transform: scale(1);
+    }
+}
+
+/* Mobile Large (376px to 767px) */
+@media screen and (min-width: 376px) and (max-width: 767px) {
+    .services-page {
+        padding: 100px 40px;
+    }
+    .services-page img {
+        transform: scale(1);
+    }
+}
+
+/* Tablet (768px to 1023px) */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    .services-page {
+        padding: 120px 60px;
+    }
+    .services-page img {
+        transform: scale(1);
+    }
+}
+
+/* Desktop (1024px and above) */
 @media screen and (min-width: 1024px) {
     .services-page {
-        min-height: 90vh; /* Taller on desktop */
-        padding: 100px 60px;
+        padding: 120px 60px;
+    }
+    .services-page img {
+        transform: scale(1);
+        max-width: 80%;
     }
 }

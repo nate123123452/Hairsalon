@@ -7,63 +7,217 @@
     width: 100%;
 }
 
-.careers-left {
-    width: 100%;
-    max-width: 600px;
-    padding: 1rem;
-}
-
 .careers-text {
-    margin-bottom: 2rem;
     text-align: center;
+    margin-bottom: 2rem;
 }
 
 .careers-text h1 {
-    font-size: 1.75rem;
+    font-size: 1.5rem;
     margin-bottom: 1rem;
 }
 
 .careers-text p {
     font-size: 1rem;
-    margin: 0 1rem;
 }
 
-.input-error {
+.input-grid{
+    width: 100%;
+    max-width: 75%;
+    margin: 0 auto;
+    margin-bottom: 40px;
+}
+.input-grid input,
+.input-grid select,
+.input-grid input[type="date"],
+.input-grid button {
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid black;
+    border-radius: 1px;
+    margin-bottom: 10px;
+    appearance: none;
+}
+
+.input-grid input.input-error,
+.input-grid select.input-error,
+.input-grid input[type="date"].input-error,
+.input-grid input[type="select"].input-error
+{
+    border: 1px solid red;
     border: 1px solid red;
     background-color: #ffe6e6;
 }
 
-/* Tablet (768px and up) */
-@media (min-width: 768px) {
+.input-grid select,
+.input-grid input[type="date"] {
+    background-color: white;
+    color: inherit;
+}
+
+.input-grid button {
+    background-color: black;
+    color: white;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 0 10px;
+    font-size: medium;
+}
+
+.select-container {
+    position: relative;
+}
+
+.select-container select {
+    cursor: pointer;
+    appearance: none; /* Remove default arrow */
+}
+
+.select-icon {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-100%);
+    pointer-events: none; /* Prevents the icon from intercepting clicks */
+    color: black;
+    width: 12px;
+    height: 12px;
+}
+
+/* Mobile Small (320px and below) */
+@media screen and (max-width: 320px) {
     .careers-text h1 {
-        font-size: 2rem;
+        font-size: 1.5rem;
     }
-    
     .careers-text p {
-        font-size: 1.125rem;
-        margin: 0 2rem;
+        font-size: 1rem;
+    }
+    .input-grid input,
+    .input-grid select,
+    .input-grid button {
+        height: 50px;
+        padding: 0 20px;
+        font-size: 14px;
+        width: 100%;
+    }
+    .select-container select {
+        padding-right: 35px;
     }
 }
+
+/* Mobile Medium (321px to 375px) */
+@media screen and (min-width: 321px) and (max-width: 375px) {
+    .careers-text h1 {
+        font-size: 1.8rem;
+    }
+    .careers-text p {
+        font-size: 1.2rem;
+    }
+    .input-grid input,
+    .input-grid select,
+    .input-grid button {
+        height: 50px;
+        padding: 0 30px;
+        font-size: 16px;
+    }
+    .select-container select {
+        padding-right: 45px;
+    }
+}
+
+/* Mobile Large (376px to 1023px) */
+@media screen and (min-width: 376px) and (max-width: 1023px) {
+    .careers-text h1 {
+        font-size: 1.9rem;
+    }
+    .careers-text p {
+        font-size: 1.4rem;
+    }
+    .input-grid input,
+    .input-grid select,
+    .input-grid button {
+        height: 60px;
+        padding: 0px 50px;
+        font-size: 16px;
+    }
+    .apply-button{
+        grid-column: span 2;
+        margin-left: auto;
+        width: 50%; /* Make button half width */
+        text-align: center;
+    }
+    .select-container select {
+        padding-right: 45px;
+    }
+
+}
+
 
 /* Desktop (1024px and up) */
 @media (min-width: 1024px) {
     .careers-main {
+        display: flex;
         flex-direction: row;
         justify-content: space-between;
-        padding: 2rem;
+        align-items: stretch; /* Ensure both sides are the same height */
+        padding: 0;
+        margin-bottom: 15px;
     }
 
-    .careers-left {
-        margin-left: 10%;
+    .left-container {
+        margin-top: 20px;
+        width: 50%;
+        height: 50%;
     }
-
+   
     .careers-text h1 {
         font-size: 2.5rem;
     }
 
     .careers-text p {
         font-size: 1.25rem;
-        margin-left: 6.25rem;
-        text-align: left;
     }
+    .careers-main img {
+        width: 45%;
+        height: auto;
+        object-fit: cover;
+        align-self: stretch;
+        margin: 0;
+        padding: 0;
+    }
+
+    .input-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* Two equal columns */
+        gap: 10px;
+        width: 100%;
+    }
+
+    .input-grid input,
+    .input-grid select,
+    .input-grid button {
+        height: 60px;
+        padding: 0 20px;
+        font-size: 16px;
+        width: 100%; /* Ensure full width */
+    }
+
+    .input-grid input[id="resumeLink"] {
+        grid-column: span 2; /* Span full width */
+    }
+
+    .input-grid button {
+        grid-column: 2;
+    }
+    .input-grid input::placeholder, 
+    .input-grid select::placeholder,
+    .select-container select{
+        font-size: 12px;
+    }
+
 }

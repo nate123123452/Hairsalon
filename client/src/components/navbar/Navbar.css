@@ -109,6 +109,14 @@
 .mobile-menu-icon {
     z-index: 1001; /* Ensure menu icon stays above the mobile menu */
 }
+
+/* Media queries for desktop */
+@media (min-width: 1024px){
+    .navbar-left{
+        margin-left: 50px;
+    }
+}
+
 /* Media queries for tablet */
 @media (max-width: 1024px) {
     .navbar {

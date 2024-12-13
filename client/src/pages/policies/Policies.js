@@ -18,13 +18,13 @@ const Policies = () => {
                     As your stylists, your happiness is our number one priority, so we want to make sure you are 100% satisfied with your hair. <br></br>
                 </p>
                 <p>
-                    In the event you are unsatisfied with the services performed, please contact us and we'd be more than happy to schedule a complimentary redo <b>within 3 days of your HAIRCUT service date or within 7 days of your COLOR service date.</b>
+                    In the event you are unsatisfied with the services performed, please contact us and we'd be more than happy to schedule a complimentary redo <b className='shadow'>within 3 days of your HAIRCUT service date or within 7 days of your COLOR service date.</b>
                 </p>
                 <p>
                     If you choose to see another salon or stylist during this redo period or if the redo period has passed, we will not be held liable for any adjustments made and you will be charged full price for any services requested.
                 </p>
                 <p>
-                    We stand by our work and will never let a client leave if we ourselves are not 100% satisfied with the results, so with that being said, we will <b>not offer any refunds for services performed.</b>
+                    We stand by our work and will never let a client leave if we ourselves are not 100% satisfied with the results, so with that being said, we will <b className='shadow'>not offer any refunds for services performed.</b>
                 </p>
             </div>
         </section>

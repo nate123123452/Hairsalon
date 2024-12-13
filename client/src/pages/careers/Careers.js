@@ -4,6 +4,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import emailjs from 'emailjs-com';
 import 'react-toastify/dist/ReactToastify.css';
 import './Careers.css';
+import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
 
 // Accessing environment variables
 const EMAILJS_USER_ID = process.env.REACT_APP_EMAILJS_USER_ID;
@@ -24,6 +25,7 @@ const Careers = () => {
     const [touchedFields, setTouchedFields] = useState({});
     const [emailError, setEmailError] = useState(false);
     const [phoneError, setPhoneError] = useState(false);
+    const [showArrowUp, setShowArrowUp] = useState(false);
 
     const handleChange = (e) => {
         const { id, value } = e.target;
@@ -104,7 +106,7 @@ const Careers = () => {
             transition={{ duration: 1.5, ease: "easeInOut",smooth: true}}
         >  
             <section className='careers-main'>
-                <div className='careers-left'>
+                <div className='left-container'>
                     <div className='careers-text'>
                         <h1>COME WORK WITH US</h1>
                         <p>Apply to Join The Team!</p>
@@ -133,7 +135,7 @@ const Careers = () => {
                             <input
                                 type='email'
                                 id='email'
-                                placeholder='Email (email@domain.com)'
+                                placeholder='Email'
                                 value={formData.email}
                                 onChange={handleChange}
                                 onBlur={handleBlur}
@@ -146,7 +148,7 @@ const Careers = () => {
                             <input
                                 type='text'
                                 id='phone'
-                                placeholder='Phone (123-456-7890)'
+                                placeholder='Phone'
                                 value={formData.phone}
                                 onChange={handleChange}
                                 onBlur={handleBlur}
@@ -156,27 +158,34 @@ const Careers = () => {
                                 }}
                                 className={touchedFields.phone && !formData.phone ? 'input-error' : ''}
                             />
-                            <select
-                                id='position'
-                                value={formData.position}
-                                onChange={handleChange}
-                                onBlur={handleBlur}
-                                required
-                                className={touchedFields.position && !formData.position ? 'input-error' : ''}
-                            >
-                                <option value='' disabled hidden>Position I'm Applying For</option>
-                                <option value='Receptionist'>Receptionist</option>
-                                <option value='Hair Stylist'>Hair Stylist</option>
-                            </select>
-
+                            <div className='select-container'>
+                                <select
+                                    id='position'
+                                    value={formData.position}
+                                    onChange={handleChange}
+                                    onBlur={handleBlur}
+                                    onClick={() => setShowArrowUp(!showArrowUp)}
+                                    required
+                                    className={touchedFields.position && !formData.position ? 'input-error' : ''}
+                                >
+                                    <option value='' disabled hidden>Position I'm Applying For</option>
+                                    <option value='Receptionist'>Receptionist</option>
+                                    <option value='Hair Stylist'>Hair Stylist</option>
+                                </select>
+                                {showArrowUp ? (
+                                    <FaChevronUp className='select-icon' />
+                                ) : (
+                                    <FaChevronDown className='select-icon' />
+                                )}
+                            </div>
                             <input
-                                type='text'
+                                type='date'
                                 id='date'
                                 placeholder='Available Start Date'
                                 value={formData.date}
                                 onChange={handleChange}
                                 onBlur={handleBlur}
-                                onFocus={(e) => e.target.type = 'date'}
+                                onClick={(e) => e.target.type = 'date'}
                                 className={touchedFields.date && !formData.date ? 'input-error' : ''}
                             />
                             <input
@@ -187,13 +196,12 @@ const Careers = () => {
                                 onChange={handleChange}
                                 onBlur={handleBlur}
                                 className={touchedFields.resumeLink && !formData.resumeLink ? 'input-error' : ''}
-                                style={{ gridColumn: 'span 2' }} // Makes the resume link field take 2 columns
                             />
+                            <button type='submit' className='apply-button'>Apply Now</button>
+
                         </div>
-                        <button type='submit' className='apply-button'>Apply Now</button>
                     </form>
                 </div>
-
                 <img src='https://static.wixstatic.com/media/11062b_505242b110ea46ee960e3ecaaa6a878f~mv2.jpg/v1/fill/w_720,h_566,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/11062b_505242b110ea46ee960e3ecaaa6a878f~mv2.jpg' alt='Careers' />
             </section>
             <ToastContainer />
