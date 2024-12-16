@@ -1,10 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ToastContainer, toast } from 'react-toastify';
 import emailjs from 'emailjs-com';
 import 'react-toastify/dist/ReactToastify.css';
 import './Careers.css';
 import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
+import $ from 'jquery';
+import 'jquery-ui/ui/widgets/datepicker';
+import 'jquery-ui/themes/base/all.css';
+
 
 // Accessing environment variables
 const EMAILJS_USER_ID = process.env.REACT_APP_EMAILJS_USER_ID;
@@ -26,6 +30,14 @@ const Careers = () => {
     const [emailError, setEmailError] = useState(false);
     const [phoneError, setPhoneError] = useState(false);
     const [showArrowUp, setShowArrowUp] = useState(false);
+
+    useEffect(() => {
+        // Initialize the jQuery UI datepicker
+        $('input.datepicker').datepicker({
+            dateFormat: 'dd-mm-yy', // Adjust format if needed
+        });
+    }, []);
+    
 
     const handleChange = (e) => {
         const { id, value } = e.target;
@@ -179,15 +191,19 @@ const Careers = () => {
                                 )}
                             </div>
                             <input
-                                type='date'
+                                type='text'
                                 id='date'
                                 placeholder='Available Start Date'
+                                className={`datepicker ${touchedFields.date && !formData.date ? 'input-error' : ''}`}
                                 value={formData.date}
-                                onChange={handleChange}
+                                onChange={(e) => {
+                                    handleChange(e);
+                                    setTouchedFields({ ...touchedFields, date: true });
+                                }}                                
                                 onBlur={handleBlur}
-                                onClick={(e) => e.target.type = 'date'}
-                                className={touchedFields.date && !formData.date ? 'input-error' : ''}
+                                required
                             />
+
                             <input
                                 type='text'
                                 id='resumeLink'

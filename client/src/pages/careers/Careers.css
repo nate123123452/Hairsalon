@@ -3,7 +3,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 1rem;
     width: 100%;
 }
 
@@ -27,16 +26,18 @@
     margin: 0 auto;
     margin-bottom: 40px;
 }
+
 .input-grid input,
 .input-grid select,
 .input-grid input[type="date"],
 .input-grid button {
     width: 100%;
     box-sizing: border-box;
-    border: 1px solid black;
+    border: 1px solid grey; /* Set text color to grey */
     border-radius: 1px;
-    margin-bottom: 10px;
     appearance: none;
+    color: grey; /* Set text color to grey */
+    margin-bottom: 10px;
 }
 
 .input-grid input.input-error,
@@ -53,6 +54,7 @@
 .input-grid input[type="date"] {
     background-color: white;
     color: inherit;
+    margin-bottom: 10px;
 }
 
 .input-grid button {
@@ -69,6 +71,10 @@
     font-size: medium;
 }
 
+
+
+
+
 .select-container {
     position: relative;
 }
@@ -76,6 +82,7 @@
 .select-container select {
     cursor: pointer;
     appearance: none; /* Remove default arrow */
+    color: grey;
 }
 
 .select-icon {
@@ -154,9 +161,7 @@
     .select-container select {
         padding-right: 45px;
     }
-
 }
-
 
 /* Desktop (1024px and up) */
 @media (min-width: 1024px) {
@@ -170,20 +175,20 @@
     }
 
     .left-container {
-        margin-top: 20px;
+        margin-top: 50px;
         width: 50%;
         height: 50%;
     }
    
     .careers-text h1 {
-        font-size: 2.5rem;
+        font-size: 2rem;
     }
 
     .careers-text p {
         font-size: 1.25rem;
     }
     .careers-main img {
-        width: 45%;
+        width: 50%;
         height: auto;
         object-fit: cover;
         align-self: stretch;
@@ -219,5 +224,31 @@
     .select-container select{
         font-size: 12px;
     }
+}
 
+/* Extra Large Desktop (1440px and up) */
+@media (min-width: 1025px) {
+    .input-grid {
+        width: 55%;
+        max-width: 90%; /* Reduce overall width */
+    }
+
+    .input-grid input,
+    .input-grid select,
+    .input-grid button,
+    .input-grid input[type="date"]
+    {
+        height: 50px; /* Reduce height */
+        padding: 0 15px; /* Reduce padding */
+        font-size: 14px; /* Reduce font size */
+        width: 100%;
+        margin-bottom: 0px;
+    }
+    .left-container {
+        margin-top: 10%;
+    }
+    .select-container {
+        width: 100%;
+    }
+    
 }
