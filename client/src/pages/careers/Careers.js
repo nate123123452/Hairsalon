@@ -1,13 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ToastContainer, toast } from 'react-toastify';
 import emailjs from 'emailjs-com';
 import 'react-toastify/dist/ReactToastify.css';
 import './Careers.css';
 import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
-import $ from 'jquery';
-import 'jquery-ui/ui/widgets/datepicker';
-import 'jquery-ui/themes/base/all.css';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
 
 // Accessing environment variables
@@ -30,13 +29,6 @@ const Careers = () => {
     const [emailError, setEmailError] = useState(false);
     const [phoneError, setPhoneError] = useState(false);
     const [showArrowUp, setShowArrowUp] = useState(false);
-
-    useEffect(() => {
-        // Initialize the jQuery UI datepicker
-        $('input.datepicker').datepicker({
-            dateFormat: 'dd-mm-yy', // Adjust format if needed
-        });
-    }, []);
     
 
     const handleChange = (e) => {
@@ -58,6 +50,11 @@ const Careers = () => {
 
     const handleBlur = (e) => {
         setTouchedFields({ ...touchedFields, [e.target.id]: true });
+    };
+
+    const handleDateChange = (date) => {
+        setFormData({ ...formData, date });
+        setTouchedFields({ ...touchedFields, date: true });
     };
 
     const handleSubmit = async (e) => {
@@ -190,18 +187,13 @@ const Careers = () => {
                                     <FaChevronDown className='select-icon' />
                                 )}
                             </div>
-                            <input
-                                type='text'
+                            <DatePicker
                                 id='date'
-                                placeholder='Available Start Date'
-                                className={`datepicker ${touchedFields.date && !formData.date ? 'input-error' : ''}`}
-                                value={formData.date}
-                                onChange={(e) => {
-                                    handleChange(e);
-                                    setTouchedFields({ ...touchedFields, date: true });
-                                }}                                
+                                selected={formData.date}
+                                onChange={handleDateChange}
                                 onBlur={handleBlur}
-                                required
+                                placeholderText='Available Start Date'
+                                className={`datepicker ${touchedFields.date && !formData.date ? 'input-error' : ''}`}
                             />
 
                             <input

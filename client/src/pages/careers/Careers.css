@@ -28,38 +28,36 @@
 }
 
 .input-grid input,
-.input-grid select,
-.input-grid input[type="date"],
-.input-grid button {
+.input-grid select {
     width: 100%;
     box-sizing: border-box;
-    border: 1px solid grey; /* Set text color to grey */
     border-radius: 1px;
+    border: 1px solid #d1d1d1;
     appearance: none;
-    color: grey; /* Set text color to grey */
     margin-bottom: 10px;
 }
 
-.input-grid input.input-error,
-.input-grid select.input-error,
-.input-grid input[type="date"].input-error,
-.input-grid input[type="select"].input-error
+.input-grid .react-datepicker-wrapper,
+.input-grid .react-datepicker__input-container input {
+    width: 100%;
+    margin-bottom: 0px;
+}
+
+.input-grid input.input-error
 {
     border: 1px solid red;
     border: 1px solid red;
     background-color: #ffe6e6;
 }
 
-.input-grid select,
-.input-grid input[type="date"] {
+.input-grid select {
     background-color: white;
     color: inherit;
     margin-bottom: 10px;
 }
 
-.input-grid button {
+.apply-button {
     background-color: black;
-    color: white;
     border: none;
     cursor: pointer;
     text-align: center;
@@ -69,17 +67,14 @@
     width: 100%;
     padding: 0 10px;
     font-size: medium;
+    color: white;
 }
-
-
-
-
 
 .select-container {
     position: relative;
 }
 
-.select-container select {
+.select-container select{
     cursor: pointer;
     appearance: none; /* Remove default arrow */
     color: grey;
@@ -90,11 +85,32 @@
     right: 15px;
     top: 50%;
     transform: translateY(-100%);
-    pointer-events: none; /* Prevents the icon from intercepting clicks */
     color: black;
     width: 12px;
     height: 12px;
 }
+
+/* Add calendar icon inside date input */
+.input-grid .react-datepicker__input-container {
+    position: relative;
+}
+
+.input-grid .react-datepicker__input-container input {
+    cursor: pointer;
+}
+
+.input-grid .react-datepicker__input-container::after {
+    content: '\f073'; /* Font Awesome calendar-alt icon */
+    font-family: 'Font Awesome 5 Free'; /* Ensure the correct font family is used */
+    font-weight: 1000;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none; /* Prevents the icon from intercepting clicks */
+    color: grey;
+}
+
 
 /* Mobile Small (320px and below) */
 @media screen and (max-width: 320px) {
@@ -155,7 +171,6 @@
     .apply-button{
         grid-column: span 2;
         margin-left: auto;
-        width: 50%; /* Make button half width */
         text-align: center;
     }
     .select-container select {
@@ -235,9 +250,7 @@
 
     .input-grid input,
     .input-grid select,
-    .input-grid button,
-    .input-grid input[type="date"]
-    {
+    .input-grid button    {
         height: 50px; /* Reduce height */
         padding: 0 15px; /* Reduce padding */
         font-size: 14px; /* Reduce font size */
@@ -249,6 +262,9 @@
     }
     .select-container {
         width: 100%;
+    }
+    .select-icon {
+        margin-top: 2%;
     }
     
 }

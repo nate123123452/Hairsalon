@@ -133,6 +133,22 @@
     }
 }
 
-
-
-
+@media screen and (min-width: 1025px) {
+    .policies-text {
+        padding-left: 9%;
+        padding-right: 9%;
+        width: 55%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .policies-text h1{
+        font-size: 3rem;
+    }
+    .policies-text p {
+        margin-left: 0;
+        margin-right: 0;
+        font-size: 1.15rem;
+    }
+}
+    
