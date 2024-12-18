@@ -148,10 +148,6 @@ const Careers = () => {
                                 value={formData.email}
                                 onChange={handleChange}
                                 onBlur={handleBlur}
-                                style={{
-                                    borderColor: emailError ? 'red' : '',
-                                    backgroundColor: emailError ? '#f8d7da' : '',
-                                }}
                                 className={touchedFields.email && !formData.email ? 'input-error' : ''}
                             />
                             <input
@@ -161,10 +157,6 @@ const Careers = () => {
                                 value={formData.phone}
                                 onChange={handleChange}
                                 onBlur={handleBlur}
-                                style={{
-                                    borderColor: phoneError ? 'red' : '',
-                                    backgroundColor: phoneError ? '#f8d7da' : '',
-                                }}
                                 className={touchedFields.phone && !formData.phone ? 'input-error' : ''}
                             />
                             <div className='select-container'>
@@ -175,7 +167,6 @@ const Careers = () => {
                                     onBlur={handleBlur}
                                     onClick={() => setShowArrowUp(!showArrowUp)}
                                     required
-                                    className={touchedFields.position && !formData.position ? 'input-error' : ''}
                                 >
                                     <option value='' disabled hidden>Position I'm Applying For</option>
                                     <option value='Receptionist'>Receptionist</option>
@@ -188,12 +179,12 @@ const Careers = () => {
                                 )}
                             </div>
                             <DatePicker
-                                id='date'
+                                id="date"
                                 selected={formData.date}
                                 onChange={handleDateChange}
                                 onBlur={handleBlur}
-                                placeholderText='Available Start Date'
-                                className={`datepicker ${touchedFields.date && !formData.date ? 'input-error' : ''}`}
+                                placeholderText="Available Start Date"
+                                dateFormat="MM/dd/yyyy"
                             />
 
                             <input

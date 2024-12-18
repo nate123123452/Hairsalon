@@ -43,7 +43,7 @@ const Navbar = () => {
 
       <div className = "navbar-left">
          <img className = "navbar-salon-image" src = {hairtisticImage} alt = 'logo'/>
-         <h1 className = "navbar-name">Hairtistic RSM</h1>
+         <h1 className = "navbar-name">HAIRTISTIC RSM</h1>
       </div>
 
       <ul className={`desktop-navbar ${isOpen ? 'active' : ''}`}>

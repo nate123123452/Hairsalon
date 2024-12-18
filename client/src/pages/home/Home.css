@@ -24,12 +24,14 @@
     padding: 0;
     color: white;
     margin-bottom: 10px;
+    font-weight: 500;
 }
 
 .home-text {
     margin-top: 0px;
     font-size: 25px;
     color: white;
+    font-weight: 400;
 }
 
 .home-second {
@@ -42,6 +44,7 @@
 
 .home-second-title {
     color: rgb(211, 165, 48, 1);
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.6), -1px -1px 1px rgba(0, 0, 0, 0.6);
     font-size: 60px;
     padding: 40px;
     letter-spacing: 2px;
@@ -52,6 +55,7 @@
     font-size: 25px;
     margin-bottom: 25px;
     text-align: center;
+    line-height: 1.5;
 }
 
 .home-third-title {
@@ -128,6 +132,7 @@
         height: 250px;
         padding: 10px;
         background-position: center;
+        padding-top: 30px;
     }
 
     .home-title {

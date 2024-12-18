@@ -28,13 +28,15 @@
 }
 
 .input-grid input,
-.input-grid select {
+.input-grid select{
     width: 100%;
     box-sizing: border-box;
     border-radius: 1px;
     border: 1px solid #d1d1d1;
     appearance: none;
     margin-bottom: 10px;
+    background-color: white;
+    color: grey;
 }
 
 .input-grid .react-datepicker-wrapper,
@@ -50,12 +52,6 @@
     background-color: #ffe6e6;
 }
 
-.input-grid select {
-    background-color: white;
-    color: inherit;
-    margin-bottom: 10px;
-}
-
 .apply-button {
     background-color: black;
     border: none;
@@ -66,7 +62,6 @@
     justify-content: center;
     width: 100%;
     padding: 0 10px;
-    font-size: medium;
     color: white;
 }
 
@@ -74,9 +69,10 @@
     position: relative;
 }
 
+/* Remove default arrow */
 .select-container select{
     cursor: pointer;
-    appearance: none; /* Remove default arrow */
+    appearance: none; 
     color: grey;
 }
 
@@ -109,6 +105,36 @@
     transform: translateY(-50%);
     pointer-events: none; /* Prevents the icon from intercepting clicks */
     color: grey;
+}
+
+/* Base, Focus, and Blur states */
+.input-grid input[type="text"],
+.input-grid input[type="email"],
+.input-grid select,
+.input-grid .react-datepicker__input-container input
+{
+    font-size: 14px;
+}
+
+/* Base state for input grid */
+.input-grid input,
+.input-grid select,
+.input-grid .react-datepicker__input-container input {
+    /* Remove default blue highlight on click */
+    -webkit-tap-highlight-color: transparent;
+    /* Override autocomplete styles */
+    -webkit-text-fill-color: #333;
+    /* Override default focus outline */
+    outline: none;
+    /* Base text color */
+    color: #333;
+}
+/* Override autocomplete background */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
 }
 
 
@@ -161,6 +187,9 @@
     .careers-text p {
         font-size: 1.4rem;
     }
+    .careers-main img{
+        width: 100%;
+    }
     .input-grid input,
     .input-grid select,
     .input-grid button {
@@ -169,7 +198,6 @@
         font-size: 16px;
     }
     .apply-button{
-        grid-column: span 2;
         margin-left: auto;
         text-align: center;
     }
@@ -222,9 +250,10 @@
     .input-grid select,
     .input-grid button {
         height: 60px;
-        padding: 0 20px;
+        padding: 0 10px;
         font-size: 16px;
         width: 100%; /* Ensure full width */
+        margin-bottom: 0px; /* Reduce bottom margin */
     }
 
     .input-grid input[id="resumeLink"] {
@@ -243,6 +272,7 @@
 
 /* Extra Large Desktop (1440px and up) */
 @media (min-width: 1025px) {
+    
     .input-grid {
         width: 55%;
         max-width: 90%; /* Reduce overall width */
@@ -253,12 +283,11 @@
     .input-grid button    {
         height: 50px; /* Reduce height */
         padding: 0 15px; /* Reduce padding */
-        font-size: 14px; /* Reduce font size */
         width: 100%;
         margin-bottom: 0px;
     }
     .left-container {
-        margin-top: 10%;
+        margin-top: 5%;
     }
     .select-container {
         width: 100%;
@@ -266,5 +295,4 @@
     .select-icon {
         margin-top: 2%;
     }
-    
 }
