@@ -21,11 +21,22 @@ A modern, responsive website for Hairtistic RSM hair salon located in Rancho San
 
 ## Technologies Used
 
-- **Frontend**:
-  - React.js
-  - Framer Motion (animations)
-  - React Router (navigation)
-  - EmailJS (form submissions)
-  - React-Toastify (notifications)
-  - React-DatePicker (date selection)
-  - CSS3 (styling)
+- **Languages & Core Technologies**:
+  - JavaScript (ES6+)
+  - HTML5
+  - CSS3
+  - JSX
+
+- **Frontend Framework & Libraries**:
+  - React.js v18.2.0
+  - Framer Motion v10.0.1 (animations)
+  - React Router v6.8.1 (navigation)
+  - EmailJS v3.2.0 (form submissions)
+  - React-Toastify v9.1.1 (notifications)
+  - React-DatePicker v4.10.0 (date selection)
+
+- **Development Tools**:
+  - Node.js v16+
+  - npm v8+
+  - Git v2.3+
+  - Visual Studio Code

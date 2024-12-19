@@ -48,19 +48,19 @@ const Navbar = () => {
 
       <ul className={`desktop-navbar ${isOpen ? 'active' : ''}`}>
         <li className="navbar-item">
-          <NavLink exact to="/" activeClassName="active">Home</NavLink>
+          <NavLink to="/" end className={({ isActive }) => isActive ? "active" : ""}>Home</NavLink>
         </li>
         <li className="navbar-item">
-          <NavLink to="/services" activeClassName="active">Services</NavLink>
+          <NavLink to="/services" className={({ isActive }) => isActive ? "active" : ""}>Services</NavLink>
         </li>
         <li className="navbar-item">
-          <NavLink to="/reviews" activeClassName="active">Reviews</NavLink>
+          <NavLink to="/reviews" className={({ isActive }) => isActive ? "active" : ""}>Reviews</NavLink>
         </li>
         <li className="navbar-item">
-          <NavLink to="/policies" activeClassName="active">Policies</NavLink>
+          <NavLink to="/policies" className={({ isActive }) => isActive ? "active" : ""}>Policies</NavLink>
         </li>
         <li className="navbar-item">
-          <NavLink to="/careers" activeClassName="active">Careers</NavLink>
+          <NavLink to="/careers" className={({ isActive }) => isActive ? "active" : ""}>Careers</NavLink>
         </li>
       </ul>
       <div className='navbar-right'>
@@ -90,19 +90,19 @@ const Navbar = () => {
               transition={{ duration: 0.3, ease: "easeInOut" }}
             >
               <li className="mobile-navbar-item">
-                <NavLink exact to="/" activeClassName="active" onClick={() => setIsOpen(false)}>Home</NavLink>
+                <NavLink to="/" end className={({ isActive }) => isActive ? "active" : ""} onClick={() => setIsOpen(false)}>Home</NavLink>
               </li>
               <li className="mobile-navbar-item">
-                <NavLink to="/services" activeClassName="active" onClick={() => setIsOpen(false)}>Services</NavLink>
+                <NavLink to="/services" className={({ isActive }) => isActive ? "active" : ""} onClick={() => setIsOpen(false)}>Services</NavLink>
               </li>
               <li className="mobile-navbar-item">
-                <NavLink to="/reviews" activeClassName="active" onClick={() => setIsOpen(false)}>Reviews</NavLink>
+                <NavLink to="/reviews" className={({ isActive }) => isActive ? "active" : ""} onClick={() => setIsOpen(false)}>Reviews</NavLink>
               </li>
               <li className="mobile-navbar-item">
-                <NavLink to="/policies" activeClassName="active" onClick={() => setIsOpen(false)}>Policies</NavLink>
+                <NavLink to="/policies" className={({ isActive }) => isActive ? "active" : ""} onClick={() => setIsOpen(false)}>Policies</NavLink>
               </li>
               <li className="mobile-navbar-item">
-                <NavLink to="/careers" activeClassName="active" onClick={() => setIsOpen(false)}>Careers</NavLink>
+                <NavLink to="/careers" className={({ isActive }) => isActive ? "active" : ""} onClick={() => setIsOpen(false)}>Careers</NavLink>
               </li>
             </motion.ul>
           )}

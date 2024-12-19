@@ -58,6 +58,16 @@
     line-height: 1.5;
 }
 
+.home-second-text b,
+.home-second-text span:nth-child(1) {
+    font-weight: 500;
+}
+
+.home-third-text b {
+    font-weight: 500;
+}
+
+
 .home-third-title {
     color: rgb(211, 165, 48, 1);
     font-size: 25px;
