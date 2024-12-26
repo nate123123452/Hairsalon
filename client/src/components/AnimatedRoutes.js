@@ -1,8 +1,12 @@
 import React from 'react'
 import { Route, Routes, useLocation} from 'react-router-dom'
 
-import { Reviews, Home, Services, Policies, Careers} from '../pages'
-import Footer from './footer/Footer'
+import Reviews from '../pages/reviews/Reviews'; 
+import Home from '../pages/home/Home';
+import Services from '../pages/services/Services';
+import Policies from '../pages/policies/Policies'; 
+import Careers from '../pages/careers/Careers'; 
+import Footer from './footer/Footer';
 
 import { AnimatePresence } from 'framer-motion'
 
