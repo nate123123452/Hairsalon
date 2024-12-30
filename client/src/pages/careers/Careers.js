@@ -29,7 +29,7 @@ const Careers = () => {
     const [phoneError, setPhoneError] = useState(false);
     const [showArrowUp, setShowArrowUp] = useState(false);
     
-
+    // Handle form input changes
     const handleChange = (e) => {
         const { id, value } = e.target;
         setFormData({ ...formData, [id]: value });
@@ -47,15 +47,18 @@ const Careers = () => {
         }
     };
 
+    // Handle input blur to mark field as touched
     const handleBlur = (e) => {
         setTouchedFields({ ...touchedFields, [e.target.id]: true });
     };
 
+    // Handle date change for the date picker
     const handleDateChange = (date) => {
         setFormData({ ...formData, date });
         setTouchedFields({ ...touchedFields, date: true });
     };
 
+    // Handle form submission
     const handleSubmit = async (e) => {
         e.preventDefault();
 

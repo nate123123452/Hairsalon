@@ -6,8 +6,10 @@ import { FaFacebook, FaYelp, FaInstagram, FaBars, FaTimes} from 'react-icons/fa'
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Navbar = () => {
+  // State to toggle mobile menu
   const [isOpen, setIsOpen] = React.useState(false)
 
+  // Close mobile menu when window is resized to desktop
   useEffect(() => {
     const handleResize = () => {
         if (window.innerWidth >= 768) setIsOpen(false);
@@ -16,9 +18,8 @@ const Navbar = () => {
     return () => window.removeEventListener('resize', handleResize);
     }, []);
 
-
+  // Toggle body scroll when menu opens/closes
   useEffect(() => {
-    // Toggle body scroll when menu opens/closes
     if (isOpen) {
       document.body.style.overflow = 'hidden';
       document.body.style.position = 'fixed';
@@ -29,12 +30,12 @@ const Navbar = () => {
       document.body.style.width = 'auto';
     }
     
-      // Cleanup function
-      return () => {
-        document.body.style.overflow = 'unset';
-        document.body.style.position = 'static';
-        document.body.style.width = 'auto';
-      };
+    // Cleanup function
+    return () => {
+      document.body.style.overflow = 'unset';
+      document.body.style.position = 'static';
+      document.body.style.width = 'auto';
+    };
     }, [isOpen]);
 
 
@@ -46,6 +47,7 @@ const Navbar = () => {
          <h1 className = "navbar-name">HAIRTISTIC RSM</h1>
       </div>
 
+      {/* Desktop menu */}
       <ul className={`desktop-navbar ${isOpen ? 'active' : ''}`}>
         <li className="navbar-item">
           <NavLink to="/" end className={({ isActive }) => isActive ? "active" : ""}>Home</NavLink>
@@ -63,6 +65,7 @@ const Navbar = () => {
           <NavLink to="/careers" className={({ isActive }) => isActive ? "active" : ""}>Careers</NavLink>
         </li>
       </ul>
+
       <div className='navbar-right'>
         <div className = "navbar-socials">
           <a href='https://www.yelp.com/biz/hairtistic-rsm-rancho-santa-margarita' target ='_blank' rel='noreferrer'>
@@ -80,35 +83,36 @@ const Navbar = () => {
           {isOpen ? (<FaTimes size={24} />) :  (<FaBars size={24}/>)}
         </button>
       </div>
-        <AnimatePresence>
-          {isOpen && (
-            <motion.ul 
-              className="mobile-navbar"
-              initial={{ opacity: 0, y: -100 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -100 }}
-              transition={{ duration: 0.3, ease: "easeInOut" }}
-            >
-              <li className="mobile-navbar-item">
-                <NavLink to="/" end className={({ isActive }) => isActive ? "active" : ""} onClick={() => setIsOpen(false)}>Home</NavLink>
-              </li>
-              <li className="mobile-navbar-item">
-                <NavLink to="/services" className={({ isActive }) => isActive ? "active" : ""} onClick={() => setIsOpen(false)}>Services</NavLink>
-              </li>
-              <li className="mobile-navbar-item">
-                <NavLink to="/reviews" className={({ isActive }) => isActive ? "active" : ""} onClick={() => setIsOpen(false)}>Reviews</NavLink>
-              </li>
-              <li className="mobile-navbar-item">
-                <NavLink to="/policies" className={({ isActive }) => isActive ? "active" : ""} onClick={() => setIsOpen(false)}>Policies</NavLink>
-              </li>
-              <li className="mobile-navbar-item">
-                <NavLink to="/careers" className={({ isActive }) => isActive ? "active" : ""} onClick={() => setIsOpen(false)}>Careers</NavLink>
-              </li>
-            </motion.ul>
-          )}
-        </AnimatePresence>
-      
 
+      {/* Mobile menu */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.ul 
+            className="mobile-navbar"
+            initial={{ opacity: 0, y: -100 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -100 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+          >
+            <li className="mobile-navbar-item">
+              <NavLink to="/" end className={({ isActive }) => isActive ? "active" : ""} onClick={() => setIsOpen(false)}>Home</NavLink>
+            </li>
+            <li className="mobile-navbar-item">
+              <NavLink to="/services" className={({ isActive }) => isActive ? "active" : ""} onClick={() => setIsOpen(false)}>Services</NavLink>
+            </li>
+            <li className="mobile-navbar-item">
+              <NavLink to="/reviews" className={({ isActive }) => isActive ? "active" : ""} onClick={() => setIsOpen(false)}>Reviews</NavLink>
+            </li>
+            <li className="mobile-navbar-item">
+              <NavLink to="/policies" className={({ isActive }) => isActive ? "active" : ""} onClick={() => setIsOpen(false)}>Policies</NavLink>
+            </li>
+            <li className="mobile-navbar-item">
+              <NavLink to="/careers" className={({ isActive }) => isActive ? "active" : ""} onClick={() => setIsOpen(false)}>Careers</NavLink>
+            </li>
+          </motion.ul>
+        )}
+      </AnimatePresence>
+      
     </nav>
   )
 }

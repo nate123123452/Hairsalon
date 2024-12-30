@@ -9,8 +9,11 @@ import AnimatedRoutes from './components/AnimatedRoutes'
 
 const App = () => {
   return (
+    // Router component to enable routing
     <Router>
+      {/* Navbar component */}
       <Navbar />
+      {/* AnimatedRoutes component to handle route transitions */}
       <div className='route-wrapper'>
         <AnimatedRoutes />
       </div>

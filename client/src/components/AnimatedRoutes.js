@@ -12,11 +12,12 @@ import { AnimatePresence } from 'framer-motion'
 
 
 function AnimatedRoutes() {
+    // Get the current location
     const location = useLocation()
 
     return (
         <AnimatePresence>
-            <Routes location = {location} key = {location.pathname}>
+            <Routes location={location} key={location.pathname}>
                 <Route index element = {<Home />} />
                 <Route path = '/home' element = {<Home />} />
                 <Route path = '/services' element = {<Services />} />
