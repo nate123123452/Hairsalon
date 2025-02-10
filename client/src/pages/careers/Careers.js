@@ -4,9 +4,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import emailjs from 'emailjs-com';
 import 'react-toastify/dist/ReactToastify.css';
 import './Careers.css';
-import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
-import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
+import { FaChevronDown } from 'react-icons/fa';
 
 // Accessing environment variables
 const EMAILJS_USER_ID = process.env.REACT_APP_EMAILJS_USER_ID;
@@ -20,14 +18,13 @@ const Careers = () => {
         email: '',
         phone: '',
         position: '',
-        date: '',
+        date: null,
         resumeLink: '',
     });
 
     const [touchedFields, setTouchedFields] = useState({});
     const [emailError, setEmailError] = useState(false);
     const [phoneError, setPhoneError] = useState(false);
-    const [showArrowUp, setShowArrowUp] = useState(false);
     
     // Handle form input changes
     const handleChange = (e) => {
@@ -52,11 +49,15 @@ const Careers = () => {
         setTouchedFields({ ...touchedFields, [e.target.id]: true });
     };
 
-    // Handle date change for the date picker
-    const handleDateChange = (date) => {
-        setFormData({ ...formData, date });
-        setTouchedFields({ ...touchedFields, date: true });
-    };
+    // Handle date input blur to format date
+    const handleDateBlur = (e) => {
+        const { id, value } = e.target;
+        if (id === 'date' && value) {
+            const formattedDate = new Date(value).toLocaleDateString('en-US', { timeZone: 'UTC' });
+            setFormData({ ...formData, date: formattedDate });
+        }
+        setTouchedFields({ ...touchedFields, [id]: true });
+    };        
 
     // Handle form submission
     const handleSubmit = async (e) => {
@@ -167,28 +168,26 @@ const Careers = () => {
                                     value={formData.position}
                                     onChange={handleChange}
                                     onBlur={handleBlur}
-                                    onClick={() => setShowArrowUp(!showArrowUp)}
                                     required
                                 >
                                     <option value='' disabled hidden>Position I'm Applying For</option>
-                                    <option value='Receptionist'>Receptionist</option>
                                     <option value='Hair Stylist'>Hair Stylist</option>
                                 </select>
-                                {showArrowUp ? (
-                                    <FaChevronUp className='select-icon' />
-                                ) : (
-                                    <FaChevronDown className='select-icon' />
-                                )}
+                                <FaChevronDown className='select-icon' />
                             </div>
-                            <DatePicker
-                                id="date"
-                                selected={formData.date}
-                                onChange={handleDateChange}
-                                onBlur={handleBlur}
-                                placeholderText="Available Start Date"
-                                dateFormat="MM/dd/yyyy"
+                            <input
+                                type='text'
+                                id='date'
+                                placeholder='Available Start Date'
+                                value={formData.date}
+                                onFocus={(e) => e.target.type = 'date'}
+                                onChange={handleChange}
+                                onBlur={(e) => {
+                                    e.target.type = 'text';
+                                    handleDateBlur(e);
+                                }}
+                                className={touchedFields.date && !formData.date ? 'input-error' : ''}
                             />
-
                             <input
                                 type='text'
                                 id='resumeLink'
