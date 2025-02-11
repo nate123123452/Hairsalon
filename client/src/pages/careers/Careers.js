@@ -5,6 +5,8 @@ import emailjs from 'emailjs-com';
 import 'react-toastify/dist/ReactToastify.css';
 import './Careers.css';
 import { FaChevronDown } from 'react-icons/fa';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
 // Accessing environment variables
 const EMAILJS_USER_ID = process.env.REACT_APP_EMAILJS_USER_ID;
@@ -18,13 +20,15 @@ const Careers = () => {
         email: '',
         phone: '',
         position: '',
-        date: null,
+        date: '',
         resumeLink: '',
     });
 
     const [touchedFields, setTouchedFields] = useState({});
     const [emailError, setEmailError] = useState(false);
     const [phoneError, setPhoneError] = useState(false);
+
+    
     
     // Handle form input changes
     const handleChange = (e) => {
@@ -49,15 +53,13 @@ const Careers = () => {
         setTouchedFields({ ...touchedFields, [e.target.id]: true });
     };
 
-    // Handle date input blur to format date
-    const handleDateBlur = (e) => {
-        const { id, value } = e.target;
-        if (id === 'date' && value) {
-            const formattedDate = new Date(value).toLocaleDateString('en-US', { timeZone: 'UTC' });
+    // Handle date selection
+    const handleDateChange = (selectedDate) => {
+        if (selectedDate) {
+            const formattedDate = selectedDate.toLocaleDateString('en-US', { timeZone: 'UTC' });
             setFormData({ ...formData, date: formattedDate });
         }
-        setTouchedFields({ ...touchedFields, [id]: true });
-    };        
+    };
 
     // Handle form submission
     const handleSubmit = async (e) => {
@@ -110,12 +112,11 @@ const Careers = () => {
             toast.error('There was an error submitting your application. Please try again.');
         }
     };
-
     return (
         <motion.div
             initial={{ opacity: 0, y: 0 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.5, ease: "easeInOut",smooth: true}}
+            transition={{ duration: 1.5, ease: "easeInOut", smooth: true }}
         >  
             <section className='careers-main'>
                 <div className='left-container'>
@@ -134,6 +135,7 @@ const Careers = () => {
                                 onChange={handleChange}
                                 onBlur={handleBlur}
                                 className={touchedFields.firstName && !formData.firstName ? 'input-error' : ''}
+                                required
                             />
                             <input
                                 type='text'
@@ -143,6 +145,7 @@ const Careers = () => {
                                 onChange={handleChange}
                                 onBlur={handleBlur}
                                 className={touchedFields.lastName && !formData.lastName ? 'input-error' : ''}
+                                required
                             />
                             <input
                                 type='email'
@@ -151,7 +154,8 @@ const Careers = () => {
                                 value={formData.email}
                                 onChange={handleChange}
                                 onBlur={handleBlur}
-                                className={touchedFields.email && !formData.email ? 'input-error' : ''}
+                                className={(touchedFields.email && !formData.email) || emailError ? 'input-error' : ''}
+                                required
                             />
                             <input
                                 type='text'
@@ -160,8 +164,10 @@ const Careers = () => {
                                 value={formData.phone}
                                 onChange={handleChange}
                                 onBlur={handleBlur}
-                                className={touchedFields.phone && !formData.phone ? 'input-error' : ''}
+                                className={(touchedFields.phone && !formData.phone) || phoneError ? 'input-error' : ''}
+                                required
                             />
+                             {/* Position Dropdown */}
                             <div className='select-container'>
                                 <select
                                     id='position'
@@ -170,24 +176,22 @@ const Careers = () => {
                                     onBlur={handleBlur}
                                     required
                                 >
-                                    <option value='' disabled hidden>Position I'm Applying For</option>
+                                    <option value='' disabled hidden>Position</option>
                                     <option value='Hair Stylist'>Hair Stylist</option>
                                 </select>
                                 <FaChevronDown className='select-icon' />
                             </div>
-                            <input
-                                type='text'
-                                id='date'
-                                placeholder='Available Start Date'
-                                value={formData.date}
-                                onFocus={(e) => e.target.type = 'date'}
-                                onChange={handleChange}
-                                onBlur={(e) => {
-                                    e.target.type = 'text';
-                                    handleDateBlur(e);
-                                }}
-                                className={touchedFields.date && !formData.date ? 'input-error' : ''}
-                            />
+                            {/* DatePicker */}
+                            <div className='datepicker-container'>
+                                <DatePicker
+                                    selected={formData.date ? new Date(formData.date) : null}
+                                    onChange={handleDateChange}
+                                    placeholderText="Available Start Date"
+                                    className="datepicker-input"
+                                    dateFormat="MM/dd/yyyy"
+                                    required
+                                />
+                            </div>
                             <input
                                 type='text'
                                 id='resumeLink'
@@ -196,9 +200,9 @@ const Careers = () => {
                                 onChange={handleChange}
                                 onBlur={handleBlur}
                                 className={touchedFields.resumeLink && !formData.resumeLink ? 'input-error' : ''}
+                                required
                             />
                             <button type='submit' className='apply-button'>Apply Now</button>
-
                         </div>
                     </form>
                 </div>

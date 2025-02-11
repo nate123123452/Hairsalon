@@ -1,4 +1,34 @@
-/* Base styles for mobile first approach */
+/* Base styles for DatePicker */
+.datepicker-container {
+    width: 100%;
+    height: 50px;
+    margin-bottom: 0; /* Remove extra margin */
+    padding-bottom: 0; /* Remove extra padding */
+    overflow-y: hidden; /* Hide horizontal scrollbar */
+}
+
+/* Override react-datepicker styles */
+.react-datepicker-wrapper {
+    width: 100%;
+}
+
+.react-datepicker__input-container input:focus {
+    outline: none;
+    border-color: #333;
+}
+
+.react-datepicker__triangle {
+    display: none; /* Hide the default triangle */
+}
+
+/* Grey out days not in the current month */
+.react-datepicker__day--outside-month {
+    color: #ccc; /* Light grey color */
+    opacity: 0.2; /* Reduce opacity */
+    pointer-events: none; /* Disable clicks on these days */
+}
+
+/* Base styles for mobile-first approach */
 .careers-main {
     display: flex;
     flex-direction: column;
@@ -20,7 +50,7 @@
     font-size: 1rem;
 }
 
-.input-grid{
+.input-grid {
     width: 100%;
     max-width: 75%;
     margin: 0 auto;
@@ -28,7 +58,8 @@
 }
 
 .input-grid input,
-.input-grid select{
+.input-grid select,
+.input-grid .react-datepicker__input-container input {
     width: 100%;
     box-sizing: border-box;
     border-radius: 1px;
@@ -39,15 +70,7 @@
     color: grey;
 }
 
-.input-grid .react-datepicker-wrapper,
-.input-grid .react-datepicker__input-container input {
-    width: 100%;
-    margin-bottom: 0px;
-}
-
-.input-grid input.input-error
-{
-    border: 1px solid red;
+.input-grid input.input-error {
     border: 1px solid red;
     background-color: #ffe6e6;
 }
@@ -70,9 +93,8 @@
 }
 
 /* Remove default arrow */
-.select-container select{
-    cursor: pointer;
-    appearance: none; 
+.select-container select {
+    appearance: none;
     color: grey;
 }
 
@@ -86,49 +108,24 @@
     height: 12px;
 }
 
-/* Add calendar icon inside date input */
-.input-grid .react-datepicker__input-container {
-    position: relative;
-}
-
-.input-grid .react-datepicker__input-container input {
-    cursor: pointer;
-}
-
-.input-grid .react-datepicker__input-container::after {
-    content: '\f073'; /* Font Awesome calendar-alt icon */
-    font-family: 'Font Awesome 5 Free'; /* Ensure the correct font family is used */
-    font-weight: 1000;
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    pointer-events: none; /* Prevents the icon from intercepting clicks */
-    color: grey;
-}
-
 /* Base, Focus, and Blur states */
 .input-grid input[type="text"],
 .input-grid input[type="email"],
+.input-grid input[type="number"],
 .input-grid select,
-.input-grid .react-datepicker__input-container input
-{
+.input-grid .DayPickerInput input {
     font-size: 14px;
 }
 
 /* Base state for input grid */
 .input-grid input,
-.input-grid select,
-.input-grid .react-datepicker__input-container input {
-    /* Remove default blue highlight on click */
-    -webkit-tap-highlight-color: transparent;
-    /* Override autocomplete styles */
-    -webkit-text-fill-color: #333;
-    /* Override default focus outline */
-    outline: none;
-    /* Base text color */
-    color: #333;
+.input-grid select {
+    -webkit-tap-highlight-color: transparent; /* Remove default blue highlight on click */
+    -webkit-text-fill-color: #333; /* Override autocomplete styles */
+    outline: none; /* Override default focus outline */
+    color: #333; /* Base text color */
 }
+
 /* Override autocomplete background */
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
@@ -156,6 +153,9 @@ input:-webkit-autofill:active {
     .select-container select {
         padding-right: 35px;
     }
+    .input-grid input[id="resumeLink"] {
+        margin-top: 10px;
+    }
 }
 
 /* Mobile Medium (321px to 375px) */
@@ -171,10 +171,13 @@ input:-webkit-autofill:active {
     .input-grid button {
         height: 50px;
         padding: 0 30px;
-        font-size: 16px;
+        font-size: 14px;
     }
     .select-container select {
         padding-right: 45px;
+    }
+    .input-grid input[id="resumeLink"] {
+        margin-top: 10px;
     }
 }
 
@@ -186,22 +189,28 @@ input:-webkit-autofill:active {
     .careers-text p {
         font-size: 1.4rem;
     }
-    .careers-main img{
+    .careers-main img {
         width: 100%;
     }
     .input-grid input,
     .input-grid select,
     .input-grid button {
         height: 60px;
-        padding: 0px 50px;
-        font-size: 16px;
+        padding: 0 40px;
+        font-size: 14px;
     }
-    .apply-button{
+    .apply-button {
         margin-left: auto;
         text-align: center;
     }
     .select-container select {
         padding-right: 45px;
+    }
+    .input-grid input[id="resumeLink"] {
+        margin-top: 10px;
+    }
+    .input-grid .datepicker-container {
+        height: 60px; /* Consistent height */
     }
 }
 
@@ -221,7 +230,7 @@ input:-webkit-autofill:active {
         width: 50%;
         height: 50%;
     }
-   
+
     .careers-text h1 {
         font-size: 2rem;
     }
@@ -229,6 +238,7 @@ input:-webkit-autofill:active {
     .careers-text p {
         font-size: 1.25rem;
     }
+
     .careers-main img {
         width: 50%;
         height: auto;
@@ -240,7 +250,6 @@ input:-webkit-autofill:active {
 
     .input-grid {
         display: grid;
-        grid-template-columns: repeat(2, 1fr); /* Two equal columns */
         gap: 10px;
         width: 100%;
     }
@@ -252,7 +261,7 @@ input:-webkit-autofill:active {
         padding: 0 10px;
         font-size: 16px;
         width: 100%; /* Ensure full width */
-        margin-bottom: 0px; /* Reduce bottom margin */
+        margin-bottom: 0; /* Reduce bottom margin */
     }
 
     .input-grid input[id="resumeLink"] {
@@ -262,16 +271,16 @@ input:-webkit-autofill:active {
     .input-grid button {
         grid-column: 2;
     }
-    .input-grid input::placeholder, 
+
+    .input-grid input::placeholder,
     .input-grid select::placeholder,
-    .select-container select{
+    .select-container select {
         font-size: 12px;
     }
 }
 
 /* Extra Large Desktop (1440px and up) */
 @media (min-width: 1025px) {
-    
     .input-grid {
         width: 55%;
         max-width: 90%; /* Reduce overall width */
@@ -279,18 +288,21 @@ input:-webkit-autofill:active {
 
     .input-grid input,
     .input-grid select,
-    .input-grid button    {
+    .input-grid button {
         height: 50px; /* Reduce height */
         padding: 0 15px; /* Reduce padding */
         width: 100%;
-        margin-bottom: 0px;
+        margin-bottom: 0;
     }
+
     .left-container {
         margin-top: 5%;
     }
+
     .select-container {
         width: 100%;
     }
+
     .select-icon {
         margin-top: 2%;
     }
