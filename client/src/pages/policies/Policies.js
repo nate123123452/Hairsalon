@@ -8,7 +8,7 @@ const Policies = () => {
     <motion.div
       initial={{ opacity: 0, y: 0 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 1.5, ease: "easeInOut",smooth: true}}
+      transition={{ duration: 1.5, ease: "easeInOut" }}
     >  
         <section className = 'policies-main'>
             <img src = 'https://static.wixstatic.com/media/11062b_f59a6f91aea34a81a4327b0d1c750a71~mv2.jpg/v1/fill/w_576,h_610,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/11062b_f59a6f91aea34a81a4327b0d1c750a71~mv2.jpg' alt='policyimage'></img>

@@ -6,7 +6,6 @@ import Home from '../pages/home/Home';
 import Services from '../pages/services/Services';
 import Policies from '../pages/policies/Policies'; 
 import Careers from '../pages/careers/Careers'; 
-import Footer from './footer/Footer';
 
 import { AnimatePresence } from 'framer-motion'
 
@@ -25,7 +24,6 @@ function AnimatedRoutes() {
                 <Route path = '/policies' element = {<Policies />} />
                 <Route path = '/careers' element = {<Careers />} />
             </Routes>
-            <Footer />
         </AnimatePresence>
     )
 }

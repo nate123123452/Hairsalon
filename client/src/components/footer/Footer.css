@@ -5,15 +5,14 @@
 
 .footer-socials {
     display: flex;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: 5px;
     justify-content: center;
 }
 
-.footer-socials img {
+.footer-socials a {
     width: 30px; /* Adjust width as needed */
     height: 30px; /* Adjust height as needed */
-    margin: 0 10px; /* Add spacing between images */
+    margin: 0 5px; /* Add spacing between images */
 }
 
 .footer-end {
@@ -27,4 +26,11 @@ h1 {
 
 p {
     font-size: 20px;
+    line-height: 1.2;
+}
+
+@media (max-width: 375px) { /* Adjusts for extra small devices */
+    p {
+        font-size: 18px; /* Reduce the font size */
+    }
 }

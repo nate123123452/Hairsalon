@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
 import './Navbar.css'
-import hairtisticImage from '../../assets/images/hairtistic.jpg'
+import hairtisticImage from '../../assets/images/hairtistic.webp'
 import { FaFacebook, FaYelp, FaInstagram, FaBars, FaTimes} from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
 

@@ -5,16 +5,25 @@
 }
 
 .home-first {
+    position: relative;
     display: flex;
     flex-direction: column;
     height: 570px; 
     width: 100%;
-    background-size: cover;
-    background-position: center center;
-    background-image: url('../../assets/images/background-image.jpg');
     padding: 20px;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
+}
+
+.home-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1; /* Moves image behind text */
 }
 
 .home-title {
@@ -88,7 +97,7 @@
 .home-pictures{
     display: grid;
     grid-template-columns: repeat(5,1fr);
-    margin-bottom: 50px;
+    margin-bottom: 20px;
     cursor: pointer;
 }
 .home-pictures img{
@@ -200,11 +209,11 @@
 }
 
 /* Mobile Styles Small */
-@media (max-width: 320px) {
+@media (max-width: 375px) {
     .home-second-title {
         font-size: 25px;    
     }
     .home-second-text {
-        font-size: 13px;
+        font-size: 12px;
     }
 }

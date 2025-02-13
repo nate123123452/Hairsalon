@@ -8,7 +8,7 @@ const Reviews = () => {
     <motion.div
       initial={{ opacity: 0, y: 0 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 1.5, ease: "easeInOut", smooth: true }}
+      transition={{ duration: 1.5, ease: "easeInOut" }}
     >  
       <div>
         <h1 className="reviews-title">CUSTOMER REVIEWS</h1>

@@ -9,7 +9,7 @@ const Footer = () => {
       <p>
         28562 Oso Pkwy Ste I, Rancho Santa <br></br>
         Margarita, CA 92688 <br></br>
-        (949)858-5113
+        (949)-858-5113
       </p>
       <li className = "footer-socials">
             <a href='https://www.yelp.com/biz/hairtistic-rsm-rancho-santa-margarita' target ='_blank' rel='noreferrer'>
