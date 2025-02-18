@@ -19,7 +19,7 @@ const App = () => {
         <AnimatedRoutes />
       </div>
       {/* Footer component */}
-      <Footer className='footer'/>
+      <Footer />
     </Router>
   )
 }

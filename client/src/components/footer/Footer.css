@@ -10,8 +10,8 @@
 }
 
 .footer-socials a {
-    width: 30px; /* Adjust width as needed */
-    height: 30px; /* Adjust height as needed */
+    width: 30px; 
+    height: 30px;
     margin: 0 5px; /* Add spacing between images */
 }
 
@@ -29,7 +29,8 @@ p {
     line-height: 1.2;
 }
 
-@media (max-width: 375px) { /* Adjusts for extra small devices */
+/* Adjusts for extra small devices */
+@media (max-width: 375px) { 
     p {
         font-size: 18px; /* Reduce the font size */
     }
