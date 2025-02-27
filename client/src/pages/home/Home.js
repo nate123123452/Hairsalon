@@ -34,7 +34,7 @@ const Home = () => {
                     <b>Sunday: 9 am - 5 pm</b> <br />
                     <b>Monday - Saturday: 9 am - 6 pm</b>
                 </p>
-                <h4 className='home-fourth-title'>CALL (949)-858-6113</h4>
+                <h4 className='home-fourth-title'>CALL (949)-858-5113</h4>
             </section>
 
             <section className='home-pictures'>
